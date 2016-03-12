@@ -11,3 +11,11 @@ person >:nth-child(even) {
 person >:nth-child(odd) {
   background-color: lightblue;
 }
+
+.clicked {
+  border: 2px dotted pink;
+}
+
+:focus {
+  background-color: hotpink;
+}

@@ -35,3 +35,35 @@ var famousPeople = [{
     death: 1582
   }
 }]
+var input = document.getElementById('input');
+var container = document.getElementById('container');
+
+// for (var i = 0; i < person.length; i++) {
+//   person.item(i).addEventListener('click', clicky);
+// };
+//Adds border to person child elements and brings focus on input
+function clicky(event){
+  event.target.classList.toggle('clicked')
+  input.hidden = false;
+  input.focus();
+};
+
+function personLoader(obj) {
+  for (var i = 0; i < obj.length; i++){
+    container.innerHTML += "<person id='person'></person>"
+      var person = document.getElementsByTagName('person');
+    person[i].innerHTML += `<header>Title:${obj[i].title}<br>Name:${obj[i].name}</header>`;
+    person[i].innerHTML += `<section>Bio:${obj[i].bio}<br><img src=${obj[i].image}></section>`;
+    person[i].innerHTML += `<footer>Birth:${obj[i].lifespan.birth}<br>Death:${obj[i].lifespan.death}`;
+  };
+
+};
+
+
+
+
+
+
+
+
+
