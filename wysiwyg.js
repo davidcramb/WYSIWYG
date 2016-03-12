@@ -36,16 +36,28 @@ var famousPeople = [{
   }
 }]
 var input = document.getElementById('input');
-var container = document.getElementById('container');
+var container = document.getElementById('container');// var person = document.getElementsByTagName('person');
 
-// for (var i = 0; i < person.length; i++) {
-//   person.item(i).addEventListener('click', clicky);
-// };
 //Adds border to person child elements and brings focus on input
 function clicky(event){
   event.target.classList.toggle('clicked')
   input.hidden = false;
   input.focus();
+  input.value = event.target.innerHTML;
+  var typed;
+
+    input.addEventListener('keypress', getChar)
+  function getChar(e) {
+    if (e.which!=0 && e.charCode!=0) {
+      typed = String.fromCharCode(e.which)
+      var newInput = input.value
+      event.target.innerHTML = newInput;
+      
+     
+
+    };
+
+  };    
 };
 
 function personLoader(obj) {
@@ -56,8 +68,13 @@ function personLoader(obj) {
     person[i].innerHTML += `<section>Bio:${obj[i].bio}<br><img src=${obj[i].image}></section>`;
     person[i].innerHTML += `<footer>Birth:${obj[i].lifespan.birth}<br>Death:${obj[i].lifespan.death}`;
   };
-
+  for (var i = 0; i < person.length; i++) {
+  person.item(i).addEventListener('click', clicky);
+  };
 };
+
+personLoader(famousPeople)
+
 
 
 
