@@ -52,9 +52,7 @@ function clicky(event){
       typed = String.fromCharCode(e.which)
       var newInput = input.value
       event.target.innerHTML = newInput;
-      
-     
-
+         
     };
 
   };    
