@@ -40,23 +40,27 @@ var container = document.getElementById('container');// var person = document.ge
 
 //Adds border to person child elements and brings focus on input
 function clicky(event){
-  event.target.classList.toggle('clicked')
-  input.hidden = false;
-  input.focus();
-  input.value = event.target.innerHTML;
-  var typed;
+  var eventTarget = event.target;
 
+  eventTarget.classList.toggle('clicked');
+  if (event.className = 'clicked') {
+    input.hidden = false;
+    input.focus();
+    input.value = event.target.innerHTML;
     input.addEventListener('keypress', getChar)
-  function getChar(e) {
+  };
+};
+
+function getChar(e) {
+    var typed;
+
     if (e.which!=0 && e.charCode!=0) {
       typed = String.fromCharCode(e.which)
       var newInput = input.value
-      event.target.innerHTML = newInput;
-         
-    };
+      event.target.innerHTML = newInput; 
+  };
+};    
 
-  };    
-};
 
 function personLoader(obj) {
   for (var i = 0; i < obj.length; i++){
