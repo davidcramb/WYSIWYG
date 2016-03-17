@@ -37,30 +37,41 @@ var famousPeople = [{
 }]
 var input = document.getElementById('input');
 var container = document.getElementById('container');// var person = document.getElementsByTagName('person');
-
+var eventTarget;
 //Adds border to person child elements and brings focus on input
 function clicky(event){
-  var eventTarget = event.target;
+  eventTarget = event.target;
 
   eventTarget.classList.toggle('clicked');
   if (event.className = 'clicked') {
     input.hidden = false;
     input.focus();
     input.value = event.target.innerHTML;
-    input.addEventListener('keypress', getChar)
+    input.addEventListener('keyup', getChar);
+    input.addEventListener('keypress', resetField)
   };
 };
 
 function getChar(e) {
-    var typed;
+    // var typed;
+    // if (e.which!=0 && e.charCode!=0) {
+      // typed = String.fromCharCode(e.which)
+      // console.log(typed)
 
-    if (e.which!=0 && e.charCode!=0) {
-      typed = String.fromCharCode(e.which)
       var newInput = input.value
-      event.target.innerHTML = newInput; 
-  };
+      eventTarget.innerHTML = newInput; 
+    // };
 };    
 
+function resetField(e) {
+  var enterKey = e.keyCode || e.which;
+  if (enterKey === 13) {
+
+    
+    input.value = '';
+  }
+
+}
 
 function personLoader(obj) {
   for (var i = 0; i < obj.length; i++){
