@@ -48,7 +48,7 @@ function clicky(event){
     input.focus();
     input.value = event.target.innerHTML;
     input.addEventListener('keyup', getChar);
-    input.addEventListener('keypress', resetField)
+    input.addEventListener('keyup', resetField)
   };
 };
 
@@ -57,7 +57,10 @@ function getChar(e) {
     // if (e.which!=0 && e.charCode!=0) {
       // typed = String.fromCharCode(e.which)
       // console.log(typed)
-
+      if (e.keyCode === 13) {
+        eventTarget.classList.remove('clicked')
+        return false
+      }
       var newInput = input.value
       eventTarget.innerHTML = newInput; 
     // };
@@ -66,10 +69,9 @@ function getChar(e) {
 function resetField(e) {
   var enterKey = e.keyCode || e.which;
   if (enterKey === 13) {
-
-    
     input.value = '';
-  }
+
+    };
 
 }
 
